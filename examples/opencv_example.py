@@ -39,11 +39,28 @@ import cv2
 # cv2.destroyAllWindows()
 
 # Brightness and contrast
+# img = cv2.imread('../images/cute_cat.jpg')
+#
+# # image, contrast(alpha), image same dim, beta, gamma
+# cb_img = cv2.addWeighted(img, 4, np.zeros(img.shape, dtype=img.dtype), 0, 100)
+#
+# cv2.imshow('img', cb_img)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+# Convolution
 img = cv2.imread('../images/cute_cat.jpg')
 
-# image, contrast(alpha), image same dim, beta, gamma
-cb_img = cv2.addWeighted(img, 4, np.zeros(img.shape, dtype=img.dtype), 0, 100)
+K = np.array([
+    [0,-1,0],
+    [-1,5,-1],
+    [0,-1,0]
+])
 
-cv2.imshow('img', cb_img)
+convolved = cv2.filter2D(img, -1, K)
+
+cv2.imshow('original', img)
+cv2.imshow('convolved', convolved)
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
