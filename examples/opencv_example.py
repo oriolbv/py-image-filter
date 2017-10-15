@@ -18,13 +18,32 @@ import cv2
 
 # Part 2
 
-img = cv2.imread('../images/cute_cat.jpg')
-if img is None:
-    print("Image not loaded!")
-else:
-    print("Image is loaded!")
-    print(img.shape)
+# img = cv2.imread('../images/cute_cat.jpg')
+# if img is None:
+#     print("Image not loaded!")
+# else:
+#     print("Image is loaded!")
+#     print(img.shape)
+#
+# cv2.imshow('test', img)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
 
-cv2.imshow('test', img)
+# Colorspace conversion
+# img = cv2.imread('../images/cute_cat.jpg')
+# gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#
+# cv2.imshow('color', img)
+# cv2.imshow('gray', gray)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+# Brightness and contrast
+img = cv2.imread('../images/cute_cat.jpg')
+
+# image, contrast(alpha), image same dim, beta, gamma
+cb_img = cv2.addWeighted(img, 4, np.zeros(img.shape, dtype=img.dtype), 0, 100)
+
+cv2.imshow('img', cb_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
