@@ -50,7 +50,7 @@ import cv2
 
 # Convolution
 img = cv2.imread('../images/cute_cat.jpg')
-
+img = cv2.resize(img, (0, 0), fx=0.5, fy=0.5)
 K = np.array([
     [0,-1,0],
     [-1,5,-1],
